@@ -11,18 +11,23 @@
         android:theme="@style/Theme.Recode_Final_Project">
         <activity
             android:name=".views.AllocationActivity"
+            android:label="Alocação"
             android:exported="true" />
         <activity
             android:name=".views.CourseActivity"
+            android:label="Curso"
             android:exported="true" />
         <activity
             android:name=".views.ProfessorActivity"
+            android:label="Professor"
             android:exported="true" />
         <activity
             android:name=".views.DepartmentActivity"
+            android:label="Departamento"
             android:exported="true" />
         <activity
             android:name=".views.MainActivity"
+            android:label="Allocation"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
