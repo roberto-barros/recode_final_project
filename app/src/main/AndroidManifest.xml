@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Recode_Final_Project">
         <activity
+            android:name=".views.AllocationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".views.CourseActivity"
+            android:exported="true" />
+        <activity
+            android:name=".views.ProfessorActivity"
+            android:exported="true" />
+        <activity
+            android:name=".views.DepartmentActivity"
+            android:exported="true" />
+        <activity
             android:name=".views.MainActivity"
             android:exported="true">
             <intent-filter>

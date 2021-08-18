@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Recode_Final_Project</string>
+    <string name="imageDeparment">DEPARTMENT</string>
+    <string name="imageProfessor">PROFESSOR</string>
+    <string name="imageCourse">COURSE</string>
+    <string name="imageAllocation">ALLOCATION</string>
+
 </resources>

@@ -6,13 +6,53 @@
     android:layout_height="match_parent"
     tools:context=".views.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
+
+    <Button
+        android:id="@+id/imDepartment"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/layout_bg"
+        android:text="@string/imageDeparment"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imProfessor"
+        app:layout_constraintBottom_toTopOf="@id/imCourse"
+        />
+
+    <Button
+        android:id="@+id/imProfessor"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/layout_bg"
+        android:text="@string/imageProfessor"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imDepartment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/imAllocation"
+        />
+
+    <Button
+        android:id="@+id/imCourse"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/layout_bg"
+        android:text="@string/imageCourse"
+        app:layout_constraintTop_toBottomOf="@id/imDepartment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imAllocation"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        />
+
+    <Button
+        android:id="@+id/imAllocation"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/layout_bg"
+        android:text="@string/imageAllocation"
+        app:layout_constraintTop_toBottomOf="@id/imProfessor"
+        app:layout_constraintStart_toEndOf="@id/imCourse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
