@@ -5,4 +5,5 @@ import java.util.List;
 public class Allocation {
     private int id;
     private List<Professor> professors;
+
 }
