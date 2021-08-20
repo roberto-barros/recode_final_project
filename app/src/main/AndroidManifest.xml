@@ -10,34 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Recode_Final_Project">
         <activity
+            android:name=".views.InteractiveActivity"
+            android:exported="true" />
+        <activity
             android:name=".views.SplashActivity"
             android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity
-            android:name=".views.AllocationActivity"
-            android:exported="true"
-            android:label="Alocação"
-            android:parentActivityName=".views.MainActivity" />
-        <activity
-            android:name=".views.CourseActivity"
-            android:exported="true"
-            android:label="Curso"
-            android:parentActivityName=".views.MainActivity" />
-        <activity
-            android:name=".views.ProfessorActivity"
-            android:exported="true"
-            android:label="Professor"
-            android:parentActivityName=".views.MainActivity" />
-        <activity
-            android:name=".views.DepartmentActivity"
-            android:exported="true"
-            android:label="Departamento"
-            android:parentActivityName=".views.MainActivity" />
         <activity
             android:name=".views.MainActivity"
             android:exported="true"
