@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">Recode_Final_Project</string>
+    <string name="app_name">Professor Allocation</string>
     <string name="Deparment">DEPARTAMENTO</string>
     <string name="Professor">PROFESSOR</string>
     <string name="Course">CURSO</string>
     <string name="Allocation">ALOCAÇÃO</string>
+    <string name="btAdd">+</string>
 </resources>

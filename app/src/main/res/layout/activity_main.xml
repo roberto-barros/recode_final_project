@@ -14,13 +14,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/cardProfessor"
         app:layout_constraintBottom_toTopOf="@id/cardCourse"
-        app:cardCornerRadius="20dp"
     >
         <ImageButton
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@drawable/layout_bg"
-            android:src="@drawable/department"
+            android:src="@drawable/department_ico"
             android:onClick="openDepartment"
             />
     </androidx.cardview.widget.CardView>
@@ -47,13 +45,11 @@
         app:layout_constraintStart_toEndOf="@id/cardDepartment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/cardCourse"
-        app:cardCornerRadius="20dp"
         >
         <ImageButton
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@drawable/layout_bg"
-            android:src="@drawable/professor"
+            android:src="@drawable/professor_ico"
             android:onClick="openProfessor"
             />
     </androidx.cardview.widget.CardView>
@@ -80,13 +76,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/cardAllocation"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:cardCornerRadius="20dp"
         >
         <ImageButton
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@drawable/layout_bg"
-            android:src="@drawable/course"
+            android:src="@drawable/course_ico"
             android:onClick="openCourse"
             />
     </androidx.cardview.widget.CardView>
@@ -112,13 +106,11 @@
         app:layout_constraintStart_toEndOf="@id/cardCourse"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:cardCornerRadius="20dp"
         >
         <ImageButton
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:background="@drawable/layout_bg"
-            android:src="@drawable/allocation"
+            android:src="@drawable/allocation_ico"
             android:onClick="openAllocation"
             />
     </androidx.cardview.widget.CardView>
