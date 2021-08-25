@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListView;
 
 import com.example.recode_final_project.R;
+import com.example.recode_final_project.adapter.Department_Adapter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,31 +20,31 @@ public class MainActivity extends AppCompatActivity {
 
     public void openDepartment(View view) {
 
-        Intent intent = new Intent(this, InteractiveActivity.class);
+        Intent intent = new Intent(this, DepartmentActivity.class);
         startActivity(intent);
     }
 
-//    public void openProfessor(View view) {
-//
-//        Intent messenger = new Intent(this, InteractiveActivity.class);
-//        messenger.putExtra("switchView", "");
-//
-//        startActivity(messenger);
-//    }
-//
-//    public void openCourse(View view) {
-//
-//        Intent messenger = new Intent(this, InteractiveActivity.class);
-//        messenger.putExtra("switchView", "");
-//
-//        startActivity(messenger);
-//    }
-//
-//    public void openAllocation(View view) {
-//
-//        Intent messenger = new Intent(this, InteractiveActivity.class);
-//        messenger.putExtra("switchView", "");
-//
-//        startActivity(messenger);
-//    }
+    public void openProfessor(View view) {
+
+        Intent messenger = new Intent(this, DepartmentActivity.class);
+        messenger.putExtra("switchView", "");
+
+        startActivity(messenger);
+    }
+
+    public void openCourse(View view) {
+
+        Intent messenger = new Intent(this, DepartmentActivity.class);
+        messenger.putExtra("switchView", "");
+
+        startActivity(messenger);
+    }
+
+    public void openAllocation(View view) {
+
+        Intent messenger = new Intent(this, DepartmentActivity.class);
+        messenger.putExtra("switchView", "");
+
+        startActivity(messenger);
+    }
 }

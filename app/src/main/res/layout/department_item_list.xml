@@ -8,31 +8,41 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="2dp"
-        android:layout_marginBottom="2dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/tvIdDep"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ID"
-            android:textSize="20dp"
+            android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_gravity="center"
-        />
+            android:text="ID"
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/tvNameDep"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Departamento"
-            android:textSize="20dp"
             android:layout_gravity="center"
-            />
+            android:text="Departamento"
+            android:textSize="20dp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="130dp"
+            android:onClick="editValue"
+            android:src="@drawable/bt_edit" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:src="@drawable/bt_delete" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
