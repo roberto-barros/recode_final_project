@@ -7,6 +7,7 @@ public class Course {
 
     private int id;
     private String name;
+    private Allocation allocations;
 
     public Course() {
     }
@@ -14,6 +15,12 @@ public class Course {
     public Course(int id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public Course(int id, String name, Allocation allocations) {
+        this.id = id;
+        this.name = name;
+        this.allocations = allocations;
     }
 
     public int getId() {
@@ -30,5 +37,13 @@ public class Course {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Allocation getAllocations() {
+        return allocations;
+    }
+
+    public void setAllocations(Allocation allocations) {
+        this.allocations = allocations;
     }
 }
