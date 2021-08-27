@@ -23,12 +23,12 @@ public interface CourseService {
     Call<Course> getCourseById(@Path("id") int id);
 
     @POST("course")
-    Call<Professor> create(@Body Department department);
+    Call<Course> create(@Body Course course);
 
     @PUT("course/{id}")
-    Call<Professor> update(@Path("id") int id, @Body Course course);
+    Call<Course> update(@Path("id") int id, @Body Course course);
 
     @DELETE
-    Call<Professor> delete(@Path("id") int id, @Body Course course);
+    Call<Course> delete(@Path("id") int id, @Body Course course);
 
 }
