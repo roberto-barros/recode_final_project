@@ -15,7 +15,8 @@ public class RetrofitConfiguration {
 
     public RetrofitConfiguration() {
         retrofit = new Retrofit.Builder()
-                .baseUrl("https://professor-allocation-walkiria.herokuapp.com/")
+                //.baseUrl("https://professor-allocation-walkiria.herokuapp.com/")
+                .baseUrl("https://professor-allocation.herokuapp.com/")
                 .addConverterFactory(JacksonConverterFactory.create())
                 .build();
     }
@@ -29,6 +30,7 @@ public class RetrofitConfiguration {
     }
 
     public CourseService getCourseService() {
+
         return retrofit.create(CourseService.class);
     }
 
