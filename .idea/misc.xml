@@ -19,10 +19,11 @@
         <entry key="..\:/Users/rober/Documents/Repositories/Mobile/recode_final_project/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14947916666666666" />
         <entry key="..\:/Users/rober/Documents/Repositories/Mobile/recode_final_project/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.15" />
         <entry key="app/src/main/res/layout/activity_allocation.xml" value="0.115625" />
-        <entry key="app/src/main/res/layout/activity_course.xml" value="0.115625" />
+        <entry key="app/src/main/res/layout/activity_course.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_department.xml" value="0.115625" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.115625" />
         <entry key="app/src/main/res/layout/activity_professor.xml" value="0.115625" />
+        <entry key="app/src/main/res/layout/activity_teste.xml" value="0.10326086956521739" />
       </map>
     </option>
   </component>
