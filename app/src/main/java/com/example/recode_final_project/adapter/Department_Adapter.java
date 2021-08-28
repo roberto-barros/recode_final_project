@@ -42,7 +42,7 @@ public class Department_Adapter extends ArrayAdapter<Department> {
         Department department = this.departments.get(position);
 
         TextView textViewId = itemView.findViewById(R.id.tvIdDep);
-        textViewId.setText(department.getId());
+        textViewId.setText(Integer.toString(department.getId()));
 
         TextView textViewName = itemView.findViewById(R.id.tvNameDep);
         textViewName.setText(department.getName());

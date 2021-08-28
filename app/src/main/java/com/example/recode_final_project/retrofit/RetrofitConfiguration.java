@@ -21,7 +21,4 @@ public class RetrofitConfiguration {
         return retrofit.create(DepartmentService.class);
     }
 
-    public CourseService getCourseService() {
-        return retrofit.create(CourseService.class);
-    }
 }
