@@ -3,7 +3,31 @@ package com.example.recode_final_project.model;
 import java.util.List;
 
 public class Allocation {
+
     private int id;
     private List<Professor> professors;
 
+    public Allocation() {
+    }
+
+    public Allocation(int id, List<Professor> professors) {
+        this.id = id;
+        this.professors = professors;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public List<Professor> getProfessors() {
+        return professors;
+    }
+
+    public void setProfessors(List<Professor> professors) {
+        this.professors = professors;
+    }
 }
