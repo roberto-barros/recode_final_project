@@ -33,6 +33,10 @@ public class DepartmentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.department_activity);
 
+        getSupportActionBar().hide();
+
+        getAll();
+
         listView = findViewById(R.id.lvDepartment);
 
     }
@@ -70,7 +74,7 @@ public class DepartmentActivity extends AppCompatActivity {
         }
     }
 
-    public void getAll(View view) {
+    public void getAll() {
 
         Call<List<Department>> call = new RetrofitConfiguration().getDepartmentService().getDepartments();
 
@@ -94,10 +98,19 @@ public class DepartmentActivity extends AppCompatActivity {
 
     }
 
-
     public void switchToCreate(View view) {
 
         Intent intent = new Intent(this, CreateDepartmentActivity.class);
+        startActivity(intent);
+
+    }
+
+    public void switchToUpdate(View view){
+        TextView textView = findViewById(R.id.tvIdDep);
+        int idDepartment = Integer.parseInt(textView.getText().toString());
+
+        Intent intent = new Intent(this, DepartmentUpdateActivity.class);
+        intent.putExtra("idDep", idDepartment);
         startActivity(intent);
 
     }
