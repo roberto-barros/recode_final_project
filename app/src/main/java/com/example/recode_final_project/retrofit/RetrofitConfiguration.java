@@ -29,6 +29,7 @@ public class RetrofitConfiguration {
         return retrofit.create(DepartmentService.class);
     }
 
+<<<<<<< HEAD
     public CourseService getCourseService() {
 
         return retrofit.create(CourseService.class);
@@ -41,4 +42,6 @@ public class RetrofitConfiguration {
     public AllocationService getAllocationService() {
         return retrofit.create(AllocationService.class);
     }
+=======
+>>>>>>> eb0e0bc82eb20e36dd17fa77da4d146d7aeb0555
 }

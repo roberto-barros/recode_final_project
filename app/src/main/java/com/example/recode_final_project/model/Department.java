@@ -6,7 +6,7 @@ public class Department {
 
     private int id;
     private String name;
-    private List<Professor> professors;
+    private List<Professor> listProfessors;
 
     public Department(){
 
@@ -33,11 +33,11 @@ public class Department {
         this.name = name;
     }
 
-    public List<Professor> getProfessors() {
-        return professors;
+    public List<Professor> getListProfessors() {
+        return listProfessors;
     }
 
-    public void setProfessors(List<Professor> professors) {
-        this.professors = professors;
+    public void setListProfessors(List<Professor> listProfessors) {
+        this.listProfessors = listProfessors;
     }
 }

@@ -3,6 +3,8 @@
     package="com.example.recode_final_project">
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/logo"
@@ -10,7 +12,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Recode_Final_Project">
+<<<<<<< HEAD
 
+=======
+        <activity
+            android:name=".views.CreateDepartmentActivity"
+            android:exported="true" />
+        <activity
+            android:name=".item_list.Item_List"
+            android:exported="true" />
+        <activity
+            android:name=".views.DepartmentActivity"
+            android:exported="true" />
+>>>>>>> eb0e0bc82eb20e36dd17fa77da4d146d7aeb0555
         <activity
             android:name=".views.SplashActivity"
             android:exported="true">
@@ -27,8 +41,7 @@
         <activity
             android:name=".views.MainActivity"
             android:exported="true"
-            android:label="[RE]CODE V">
-        </activity>
+            android:label="[RE]CODE V" />
     </application>
 
 </manifest>
