@@ -14,10 +14,10 @@ import retrofit2.http.Path;
 
 public interface DepartmentService {
 
-    @GET("department")
+    @GET("departments")
     Call<List<Department>> getDepartments();
 
-    @GET("department/{id}")
+    @GET("departments/{id}")
     Call<Department> getDepartmentById(@Path("id") int id);
 
     @POST("departments")

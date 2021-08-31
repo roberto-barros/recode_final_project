@@ -1,4 +1,4 @@
-package com.example.recode_final_project.views;
+package com.example.recode_final_project.views.department;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,5 +12,7 @@ public class DepartmentUpdateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_department_update);
+
+//        int message = Integer.parseInt(getIntent().getStringExtra("idDep"));
     }
 }

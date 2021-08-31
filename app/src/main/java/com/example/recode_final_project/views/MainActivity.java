@@ -5,10 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ListView;
 
 import com.example.recode_final_project.R;
-import com.example.recode_final_project.adapter.Department_Adapter;
+import com.example.recode_final_project.views.department.DepartmentActivity;
 
 public class MainActivity extends AppCompatActivity {
 

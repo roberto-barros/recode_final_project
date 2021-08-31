@@ -1,4 +1,4 @@
-package com.example.recode_final_project.views;
+package com.example.recode_final_project.views.department;
 
 import androidx.appcompat.app.AppCompatActivity;
 

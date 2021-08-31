@@ -13,16 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Recode_Final_Project">
         <activity
-            android:name=".views.DepartmentUpdateActivity"
+            android:name=".views.department.DepartmentUpdateActivity"
             android:exported="true" />
         <activity
-            android:name=".views.CreateDepartmentActivity"
+            android:name=".views.department.CreateDepartmentActivity"
             android:exported="true" />
         <activity
             android:name=".item_list.Item_List"
             android:exported="true" />
         <activity
-            android:name=".views.DepartmentActivity"
+            android:name=".views.department.DepartmentActivity"
             android:exported="true" />
         <activity
             android:name=".views.SplashActivity"

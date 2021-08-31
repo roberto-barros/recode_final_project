@@ -1,5 +1,6 @@
-package com.example.recode_final_project.views;
+package com.example.recode_final_project.views.department;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.recode_final_project.R;
@@ -113,5 +115,26 @@ public class DepartmentActivity extends AppCompatActivity {
         intent.putExtra("idDep", idDepartment);
         startActivity(intent);
 
+    }
+
+    public void showConfirmDelete(View view){
+        AlertDialog.Builder msgDeleteBox = new AlertDialog.Builder(this);
+        msgDeleteBox.setTitle("Exclusão");
+        msgDeleteBox.setIcon(R.drawable.bt_delete);
+        msgDeleteBox.setMessage("Tem certeza que Deseja excluir?");
+        msgDeleteBox.setPositiveButton("SIM", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(DepartmentActivity.this, "Exclusão Efetuada", Toast.LENGTH_SHORT).show();
+            }
+        });
+        msgDeleteBox.setNegativeButton("NÃO", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(DepartmentActivity.this, "Ação Cancelada", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        msgDeleteBox.show();
     }
 }
