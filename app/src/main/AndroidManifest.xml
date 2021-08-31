@@ -16,7 +16,7 @@
             android:name=".views.department.DepartmentUpdateActivity"
             android:exported="true" />
         <activity
-            android:name=".views.department.CreateDepartmentActivity"
+            android:name=".views.department.DepartmentCreateActivity"
             android:exported="true" />
         <activity
             android:name=".item_list.Item_List"

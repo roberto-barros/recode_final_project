@@ -1,4 +1,4 @@
-package com.example.recode_final_project.views;
+package com.example.recode_final_project.views.course;
 
 import android.os.Bundle;
 import android.util.Log;

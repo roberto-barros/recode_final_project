@@ -102,7 +102,7 @@ public class DepartmentActivity extends AppCompatActivity {
 
     public void switchToCreate(View view) {
 
-        Intent intent = new Intent(this, CreateDepartmentActivity.class);
+        Intent intent = new Intent(this, DepartmentCreateActivity.class);
         startActivity(intent);
 
     }
@@ -111,7 +111,7 @@ public class DepartmentActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.tvIdDep);
         int idDepartment = Integer.parseInt(textView.getText().toString());
 
-        Intent intent = new Intent(this, DepartmentUpdateActivity.class);
+        Intent intent = new Intent(this, DepartmentCreateActivity.class);
         intent.putExtra("idDep", idDepartment);
         startActivity(intent);
 
@@ -125,7 +125,28 @@ public class DepartmentActivity extends AppCompatActivity {
         msgDeleteBox.setPositiveButton("SIM", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(DepartmentActivity.this, "Exclusão Efetuada", Toast.LENGTH_SHORT).show();
+
+                listView = findViewById(R.id.lvDepartment);
+                int item = Integer.parseInt((String) listView.getItemAtPosition(i));
+
+                Call<Void> call = new RetrofitConfiguration().getDepartmentService().deleteDepartment(item);
+
+                call.enqueue(new Callback<Void>() {
+                    @Override
+                    public void onResponse(Call<Void> call, Response<Void> response) {
+
+                        Toast.makeText(DepartmentActivity.this, "Exclusão Efetuada", Toast.LENGTH_SHORT).show();
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<Void> call, Throwable t) {
+
+                        Toast.makeText(DepartmentActivity.this, "Erro na Requisição", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
             }
         });
         msgDeleteBox.setNegativeButton("NÃO", new DialogInterface.OnClickListener() {
@@ -137,4 +158,6 @@ public class DepartmentActivity extends AppCompatActivity {
         });
         msgDeleteBox.show();
     }
+
+
 }

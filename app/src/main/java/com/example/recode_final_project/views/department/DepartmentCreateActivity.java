@@ -16,7 +16,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class CreateDepartmentActivity extends AppCompatActivity {
+public class DepartmentCreateActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,5 +54,7 @@ public class CreateDepartmentActivity extends AppCompatActivity {
             });
         }
     }
+
+
     
 }

@@ -7,6 +7,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -25,5 +26,8 @@ public interface DepartmentService {
 
     @PUT("departments/{id}")
     Call<Department> updateDepartment(@Path("id") int id, @Body Department department);
+
+    @DELETE("departments/{id}")
+    Call<Void> deleteDepartment(@Path("id") int id);
 
 }
