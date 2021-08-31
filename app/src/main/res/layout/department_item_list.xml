@@ -4,50 +4,36 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-        <TextView
-            android:id="@+id/tvIdDep"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/tvNameDep"
-            app:layout_constraintBottom_toBottomOf="@id/imEdit"
-            android:text="ID"
-            android:textSize="15dp" />
-
-        <TextView
-            android:id="@+id/tvNameDep"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginLeft="10dp"
-            app:layout_constraintBottom_toBottomOf="@id/imEdit"
-            app:layout_constraintStart_toEndOf="@id/tvIdDep"
-            app:layout_constraintEnd_toStartOf="@id/imEdit"
-            android:text="Departamento"
-            android:textSize="15dp" />
-
-        <ImageButton
-            android:id="@+id/imEdit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="130dp"
-            android:onClick="switchToUpdate"
-            android:src="@drawable/bt_edit"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/imDelete"
-            />
-
-        <ImageButton
-            android:id="@+id/imDelete"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/bt_delete"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:onClick="showConfirmDelete"
-            />
+            android:orientation="horizontal"
+            android:onClick="switchToUpdateDelete"
+                >
 
+                <TextView
+                    android:id="@+id/tvIdDep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="ID"
+                    android:textSize="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
+
+                <TextView
+                    android:id="@+id/tvNameDep"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Departamento"
+                    android:textSize="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    />
+
+        </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

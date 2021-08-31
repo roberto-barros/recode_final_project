@@ -52,6 +52,8 @@ public class DepartmentCreateActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Erro no cadastro!", Toast.LENGTH_SHORT).show();
                 }
             });
+        }else{
+            Toast.makeText(getApplicationContext(), "Informação obrigatória não digitada", Toast.LENGTH_SHORT).show();
         }
     }
 

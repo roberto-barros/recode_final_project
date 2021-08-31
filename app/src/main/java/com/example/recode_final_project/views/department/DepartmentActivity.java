@@ -37,9 +37,9 @@ public class DepartmentActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-        getAll();
-
         listView = findViewById(R.id.lvDepartment);
+
+        getAll();
 
     }
 
@@ -107,7 +107,7 @@ public class DepartmentActivity extends AppCompatActivity {
 
     }
 
-    public void switchToUpdate(View view){
+    public void switchToUpdateDelete(View view){
         TextView textView = findViewById(R.id.tvIdDep);
         int idDepartment = Integer.parseInt(textView.getText().toString());
 
@@ -118,24 +118,81 @@ public class DepartmentActivity extends AppCompatActivity {
     }
 
     public void showConfirmDelete(View view){
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//
+//                final int idItem = i;
+//
+//                new AlertDialog.Builder(DepartmentActivity.this)
+//                        .setTitle("Exclusão")
+//                        .setIcon(R.drawable.bt_delete)
+//                        .setMessage("Tem certeza que Deseja excluir?")
+//                        .setPositiveButton("SIM", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialogInterface, int i) {
+//
+//                                Call<Void> call = new RetrofitConfiguration().getDepartmentService().deleteDepartment(idItem);
+//
+//                                call.enqueue(new Callback<Void>() {
+//                                    @Override
+//                                    public void onResponse(Call<Void> call, Response<Void> response) {
+//
+//                                        Toast.makeText(getApplicationContext(), "Exclusão Efetuada", Toast.LENGTH_SHORT).show();
+//
+//                                    }
+//
+//                                    @Override
+//                                    public void onFailure(Call<Void> call, Throwable t) {
+//
+//                                        Toast.makeText(DepartmentActivity.this, "Erro na Requisição", Toast.LENGTH_SHORT).show();
+//
+//                                    }
+//                                });
+//
+//                            }
+//                        })
+//                        .setNegativeButton("NÃO", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialogInterface, int i) {
+//
+//                                Toast.makeText(DepartmentActivity.this, "Ação Cancelada", Toast.LENGTH_SHORT).show();
+//
+//                            }
+//                        })
+//                        .show();
+//            }
+//        });
+
+
+
+
+
         AlertDialog.Builder msgDeleteBox = new AlertDialog.Builder(this);
+
         msgDeleteBox.setTitle("Exclusão");
         msgDeleteBox.setIcon(R.drawable.bt_delete);
         msgDeleteBox.setMessage("Tem certeza que Deseja excluir?");
+
         msgDeleteBox.setPositiveButton("SIM", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
 
                 listView = findViewById(R.id.lvDepartment);
-                int item = Integer.parseInt((String) listView.getItemAtPosition(i));
 
-                Call<Void> call = new RetrofitConfiguration().getDepartmentService().deleteDepartment(item);
+                Department department = (Department) listView.getItemAtPosition(i);
+
+                int idItem = department.getId();
+
+//                int idItem = Integer.parseInt((String) listView.getItemAtPosition(i));
+
+                Call<Void> call = new RetrofitConfiguration().getDepartmentService().deleteDepartment(idItem);
 
                 call.enqueue(new Callback<Void>() {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
 
-                        Toast.makeText(DepartmentActivity.this, "Exclusão Efetuada", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Exclusão Efetuada", Toast.LENGTH_SHORT).show();
 
                     }
 
@@ -149,6 +206,7 @@ public class DepartmentActivity extends AppCompatActivity {
 
             }
         });
+
         msgDeleteBox.setNegativeButton("NÃO", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -157,7 +215,6 @@ public class DepartmentActivity extends AppCompatActivity {
             }
         });
         msgDeleteBox.show();
+
     }
-
-
 }
