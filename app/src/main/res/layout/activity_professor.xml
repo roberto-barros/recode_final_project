@@ -28,7 +28,7 @@
         app:layout_constraintEnd_toStartOf="@id/imAddProfessor"
         app:layout_constraintStart_toEndOf="@id/edProfessor"
         app:layout_constraintTop_toTopOf="parent"
-        android:onClick="getDepartmentById"
+        android:onClick="getProfessorById"
         />
 
     <ImageButton
@@ -40,7 +40,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/imFindProfessor"
         app:layout_constraintTop_toTopOf="parent"
-        android:onClick="switchToCreate"
+        android:onClick="switchToCreateProfessor"
         />
 
     <TextView

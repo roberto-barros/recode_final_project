@@ -2,7 +2,11 @@ package com.example.recode_final_project.views.professor;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -10,6 +14,7 @@ import com.example.recode_final_project.R;
 import com.example.recode_final_project.adapter.Professor_Adapter;
 import com.example.recode_final_project.model.Professor;
 import com.example.recode_final_project.retrofit.RetrofitConfiguration;
+import com.example.recode_final_project.views.department.DepartmentCreateActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +59,15 @@ public class ProfessorActivity extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(), "Busca Realizada", Toast.LENGTH_SHORT).show();
 
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        Intent intent = new Intent(ProfessorActivity.this, ProfessorUpdateDeleteActivity.class);
+                        intent.putExtra("ID_PROFESSOR", professors.get(i).getId());
+                        startActivity(intent);
+                    }
+                });
+
             }
 
             @Override
@@ -61,5 +75,43 @@ public class ProfessorActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Erro!", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void getProfessorById(View view) {
+
+        EditText editText = findViewById(R.id.edProfessor);
+
+        if(!editText.getText().toString().equals("") && !editText.getText().toString().equals(null)){
+            int idProfessor = Integer.parseInt(editText.getText().toString());
+
+            editText.setText("");
+
+            Call<Professor> call = new RetrofitConfiguration().getProfessorService().getProfessorById(idProfessor);
+
+            call.enqueue(new Callback<Professor>() {
+                @Override
+                public void onResponse(Call<Professor> call, Response<Professor> response) {
+                    Professor professor = response.body();
+
+                    ArrayList<Professor> list = new ArrayList<>();
+
+                    list.add(professor);
+
+                    listView.setAdapter(new Professor_Adapter(ProfessorActivity.this, R.layout.professor_item_list, list));
+
+                    Toast.makeText(getApplicationContext(), "Professor encontrado", Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onFailure(Call<Professor> call, Throwable t) {
+                    Toast.makeText(getApplicationContext(), "Erro!", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
+
+    public void switchToCreateProfessor(View view) {
+        Intent intent = new Intent(this, ProfessorCreateActivity.class);
+        startActivity(intent);
     }
 }

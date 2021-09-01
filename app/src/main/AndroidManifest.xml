@@ -12,8 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Recode_Final_Project">
         <activity
+            android:name=".views.professor.ProfessorCreateActivity"
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity
+            android:name=".views.professor.ProfessorUpdateDeleteActivity"
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity
             android:name=".views.professor.ProfessorActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden"/>
         <activity
             android:name=".views.department.DepartmentUpdateDeleteActivity"
             android:exported="true"

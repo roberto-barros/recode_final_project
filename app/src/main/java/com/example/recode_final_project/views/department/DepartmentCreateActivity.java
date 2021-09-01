@@ -2,7 +2,6 @@ package com.example.recode_final_project.views.department;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -22,7 +21,7 @@ public class DepartmentCreateActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_department);
+        setContentView(R.layout.activity_department_create);
 
         getSupportActionBar().hide();
 

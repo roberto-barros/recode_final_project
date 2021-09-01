@@ -27,12 +27,12 @@ public class DepartmentUpdateDeleteActivity extends AppCompatActivity {
 
         EditText departmentId = findViewById(R.id.edDepartmentId);
         departmentId.setEnabled(false);
-        EditText departmentName = findViewById(R.id.edDepartmentName);
+        EditText departmentName = findViewById(R.id.edProfessorName);
 
         Intent intent = getIntent();
-        String id = Integer.toString(intent.getIntExtra("ID", 0));
+        int id = intent.getIntExtra("ID", 0);
 
-        Call<Department> call = new RetrofitConfiguration().getDepartmentService().getDepartmentById(Integer.parseInt(id));
+        Call<Department> call = new RetrofitConfiguration().getDepartmentService().getDepartmentById(id);
 
         call.enqueue(new Callback<Department>() {
             @Override
@@ -57,7 +57,7 @@ public class DepartmentUpdateDeleteActivity extends AppCompatActivity {
         int departmentId = Integer.parseInt(editTextId.getText().toString());
         department.setId(departmentId);
 
-        EditText editTextName = findViewById(R.id.edDepartmentName);
+        EditText editTextName = findViewById(R.id.edProfessorName);
         String departmentName = editTextName.getText().toString();
         department.setName(departmentName);
 

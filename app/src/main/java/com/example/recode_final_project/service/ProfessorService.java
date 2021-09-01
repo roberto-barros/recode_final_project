@@ -23,11 +23,11 @@ public interface ProfessorService {
     Call<Professor> getProfessorById(@Path("id") int id);
 
     @POST("professors/")
-    Call<Professor> create(@Body Professor professor);
+    Call<Professor> createProfessor(@Body Professor professor);
 
     @PUT("professors/{id}")
-    Call<Professor> update(@Path("id") int id, @Body Professor professor);
+    Call<Professor> updateProfessor(@Path("id") int id, @Body Professor professor);
 
     @DELETE
-    Call<Void> delete(@Path("id") int id);
+    Call<Void> deleteProfessor(@Path("id") int id);
 }
