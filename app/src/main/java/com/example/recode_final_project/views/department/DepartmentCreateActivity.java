@@ -2,6 +2,7 @@ package com.example.recode_final_project.views.department;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -58,8 +59,9 @@ public class DepartmentCreateActivity extends AppCompatActivity {
         }else{
             Toast.makeText(getApplicationContext(), "Informação obrigatória não digitada", Toast.LENGTH_SHORT).show();
         }
+        finish();
+//        Intent intent = new Intent(this, DepartmentActivity.class);
+//        startActivity(intent);
     }
 
-
-    
 }

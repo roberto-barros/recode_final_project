@@ -21,7 +21,7 @@ public interface DepartmentService {
     @GET("departments/{id}")
     Call<Department> getDepartmentById(@Path("id") int id);
 
-    @POST("departments")
+    @POST("departments/")
     Call<Department> createDepartment(@Body DepartmentDTO department);
 
     @PUT("departments/{id}")

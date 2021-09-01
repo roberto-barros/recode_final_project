@@ -80,6 +80,8 @@ public class DepartmentUpdateDeleteActivity extends AppCompatActivity {
             }
         });
 
+        finish();
+
     }
 
     public void deleteDepartment(View view) {
@@ -103,6 +105,8 @@ public class DepartmentUpdateDeleteActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Erro!", Toast.LENGTH_SHORT).show();
             }
         });
+
+        finish();
 
     }
 }

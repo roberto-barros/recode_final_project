@@ -1,6 +1,5 @@
 package com.example.recode_final_project.views.department;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -8,11 +7,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.recode_final_project.R;
@@ -120,6 +117,6 @@ public class DepartmentActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, DepartmentCreateActivity.class);
         startActivity(intent);
-
     }
+
 }
