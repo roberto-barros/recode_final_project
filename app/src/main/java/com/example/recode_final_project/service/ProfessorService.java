@@ -16,18 +16,18 @@ public interface ProfessorService {
 
     //CRUD
 
-    @GET("professor")
+    @GET("professors/")
     Call<List<Professor>> getProfessors();
 
-    @GET("professor/{id}")
+    @GET("professors/{id}")
     Call<Professor> getProfessorById(@Path("id") int id);
 
-    @POST("professor")
+    @POST("professors/")
     Call<Professor> create(@Body Professor professor);
 
-    @PUT("professor/{id}")
+    @PUT("professors/{id}")
     Call<Professor> update(@Path("id") int id, @Body Professor professor);
 
     @DELETE
-    Call<Professor> delete(@Path("id") int id, @Body Professor professor);
+    Call<Void> delete(@Path("id") int id);
 }
