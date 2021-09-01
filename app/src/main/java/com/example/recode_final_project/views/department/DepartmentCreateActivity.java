@@ -22,6 +22,9 @@ public class DepartmentCreateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_department);
+
+        getSupportActionBar().hide();
+
     }
 
     public void createDepartment(View view) {

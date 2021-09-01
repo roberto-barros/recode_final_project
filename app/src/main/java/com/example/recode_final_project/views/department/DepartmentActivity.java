@@ -44,6 +44,12 @@ public class DepartmentActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getAll();
+    }
+
     public void getDepartmentById(View view) {
 
         EditText editText = findViewById(R.id.edDepartment);
@@ -113,16 +119,6 @@ public class DepartmentActivity extends AppCompatActivity {
     public void switchToCreate(View view) {
 
         Intent intent = new Intent(this, DepartmentCreateActivity.class);
-        startActivity(intent);
-
-    }
-
-    public void switchToUpdateDelete(View view){
-        TextView textView = findViewById(R.id.tvIdDep);
-        int idDepartment = Integer.parseInt(textView.getText().toString());
-
-        Intent intent = new Intent(this, DepartmentCreateActivity.class);
-        intent.putExtra("idDep", idDepartment);
         startActivity(intent);
 
     }

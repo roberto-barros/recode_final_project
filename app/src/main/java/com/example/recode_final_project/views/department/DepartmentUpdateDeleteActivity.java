@@ -23,7 +23,10 @@ public class DepartmentUpdateDeleteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_department_update_delete);
 
+        getSupportActionBar().hide();
+
         EditText departmentId = findViewById(R.id.edDepartmentId);
+        departmentId.setEnabled(false);
         EditText departmentName = findViewById(R.id.edDepartmentName);
 
         Intent intent = getIntent();
@@ -35,7 +38,7 @@ public class DepartmentUpdateDeleteActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Department> call, Response<Department> response) {
                 Department department = response.body();
-                departmentId.setText(department.getId());
+                departmentId.setText(Integer.toString(department.getId()));
                 departmentName.setText(department.getName());
             }
 
@@ -47,6 +50,59 @@ public class DepartmentUpdateDeleteActivity extends AppCompatActivity {
     }
 
     public void updateDepartment(View view) {
+
+        Department department = new Department();
+
+        EditText editTextId = findViewById(R.id.edDepartmentId);
+        int departmentId = Integer.parseInt(editTextId.getText().toString());
+        department.setId(departmentId);
+
+        EditText editTextName = findViewById(R.id.edDepartmentName);
+        String departmentName = editTextName.getText().toString();
+        department.setName(departmentName);
+
+        Call<Department> call = new RetrofitConfiguration().getDepartmentService().updateDepartment(department.getId(), department);
+        
+        call.enqueue(new Callback<Department>() {
+            @Override
+            public void onResponse(Call<Department> call, Response<Department> response) {
+                if(response.isSuccessful()){
+
+                    Toast.makeText(getApplicationContext(), "Departamento Atualizado", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Department> call, Throwable t) {
+
+                Toast.makeText(getApplicationContext(), "Erro!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+    public void deleteDepartment(View view) {
+
+        EditText editTextId = findViewById(R.id.edDepartmentId);
+        int departmentId = Integer.parseInt(editTextId.getText().toString());
+        
+        Call<Void> call = new RetrofitConfiguration().getDepartmentService().deleteDepartment(departmentId);
+        
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if(response.isSuccessful()){
+                    Toast.makeText(getApplicationContext(), "Departamento Apagado", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+
+                Toast.makeText(getApplicationContext(), "Erro!", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 }
