@@ -1,131 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.MainActivity">
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardDepartment"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/cardProfessor"
-        app:layout_constraintBottom_toTopOf="@id/cardCourse"
-    >
-        <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/department_ico"
-            android:onClick="openDepartment"
-            />
-    </androidx.cardview.widget.CardView>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/tela">
 
     <TextView
-        android:id="@+id/tvDepartment"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Deparment"
-        android:textColor="@color/black"
+        android:text="RECoDev 5"
+        android:textSize="40dp"
+        android:textColor="#FF9800"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@id/tvProfessor"
+        android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardDepartment"
-        android:layout_marginRight="5dp"
-        android:layout_marginLeft="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/imDepartment"
         />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardProfessor"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/cardDepartment"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/cardCourse"
-        >
-        <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/professor_ico"
-            android:onClick="openProfessor"
-            />
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/tvProfessor"
+    <ImageButton
+        android:id="@+id/imDepartment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/Professor"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/cardProfessor"
-        app:layout_constraintStart_toEndOf="@id/tvDepartment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintBottom_toTopOf="@id/imCourse"
+        app:layout_constraintEnd_toStartOf="@id/imProfessor"
+        android:background="@drawable/round_layout_bg"
+        android:src="@drawable/departamento"
+        android:onClick="openDepartment"
+        />
+
+    <ImageButton
+        android:id="@+id/imProfessor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/imDepartment"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintBottom_toTopOf="@id/imAloc"
+        android:background="@drawable/round_layout_bg"
+        android:src="@drawable/professor"
+        android:onClick="openProfessor"
+        />
+
+    <ImageButton
+        android:id="@+id/imCourse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/imDepartment"
+        app:layout_constraintBottom_toTopOf="@id/tvMain"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/imAloc"
+        android:background="@drawable/round_layout_bg"
+        android:src="@drawable/curso"
+        android:onClick="openCourse"
+        />
+
+    <ImageButton
+        android:id="@+id/imAloc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        app:layout_constraintTop_toBottomOf="@id/imProfessor"
+        app:layout_constraintStart_toEndOf="@id/imCourse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvMain"
+        android:background="@drawable/round_layout_bg"
+        android:src="@drawable/alocacao"
+        android:onClick="openAllocation"
+        />
+
+
+
+    <TextView
+        android:id="@+id/tvMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/textMain"
+        android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginLeft="10dp"
-        />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardCourse"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:layout_constraintTop_toBottomOf="@id/cardDepartment"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/tvRights"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/cardAllocation"
-        app:layout_constraintBottom_toBottomOf="parent"
-        >
-        <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/course_ico"
-            android:onClick="openCourse"
-            />
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintEnd_toEndOf="parent"
+
+        />
 
     <TextView
-        android:id="@+id/tvCourse"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvRights"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Course"
-        android:textColor="@color/black"
+        android:text="@string/direitos"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="30dp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/cardCourse"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/tvAllocation"
-        android:layout_marginLeft="15dp"
-        />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardAllocation"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:layout_constraintTop_toBottomOf="@id/cardProfessor"
-        app:layout_constraintStart_toEndOf="@id/cardCourse"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        >
-        <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/allocation_ico"
-            android:onClick="openAllocation"
-            />
-    </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/tvAllocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Allocation"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/cardAllocation"
-        app:layout_constraintStart_toEndOf="@id/tvCourse"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginLeft="30dp"
         />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
