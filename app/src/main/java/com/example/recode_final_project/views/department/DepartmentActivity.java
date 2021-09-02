@@ -67,7 +67,7 @@ public class DepartmentActivity extends AppCompatActivity {
 
                     list.add(department);
 
-                    listView.setAdapter(new Department_Adapter(DepartmentActivity.this, R.layout.department_item_list, list));
+                    listView.setAdapter(new Department_Adapter(DepartmentActivity.this, R.layout.activity_department_item_list, list));
 
                     Toast.makeText(getApplicationContext(), "Departamento encontrado", Toast.LENGTH_SHORT).show();
                 }
@@ -91,7 +91,7 @@ public class DepartmentActivity extends AppCompatActivity {
 
                 List<Department> departments = response.body();
 
-                listView.setAdapter(new Department_Adapter(DepartmentActivity.this, R.layout.department_item_list, (ArrayList<Department>) departments));
+                listView.setAdapter(new Department_Adapter(DepartmentActivity.this, R.layout.activity_department_item_list, (ArrayList<Department>) departments));
 
                 Toast.makeText(getApplicationContext(), "Busca Realizada", Toast.LENGTH_SHORT).show();
 

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.recode_final_project.R;
+import com.example.recode_final_project.views.course.CourseActivity;
 import com.example.recode_final_project.views.department.DepartmentActivity;
 import com.example.recode_final_project.views.professor.ProfessorActivity;
 
@@ -34,10 +35,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void openCourse(View view) {
 
-        Intent messenger = new Intent(this, DepartmentActivity.class);
+        Intent messenger = new Intent(  this, CourseActivity.class);
         messenger.putExtra("switchView", "");
-
         startActivity(messenger);
+
     }
 
     public void openAllocation(View view) {
@@ -47,4 +48,6 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity(messenger);
     }
+
+
 }

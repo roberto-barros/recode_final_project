@@ -6,6 +6,7 @@ public class Allocation {
 
     private int id;
     private List<Professor> professors;
+    private List<Course> courses;
 
     public Allocation() {
     }
@@ -29,5 +30,13 @@ public class Allocation {
 
     public void setProfessors(List<Professor> professors) {
         this.professors = professors;
+    }
+
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
     }
 }

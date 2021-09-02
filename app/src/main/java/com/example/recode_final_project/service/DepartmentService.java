@@ -15,7 +15,7 @@ import retrofit2.http.Path;
 
 public interface DepartmentService {
 
-    @GET("departments")
+    @GET("departments/")
     Call<List<Department>> getDepartments();
 
     @GET("departments/{id}")

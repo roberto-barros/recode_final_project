@@ -14,7 +14,6 @@ import com.example.recode_final_project.R;
 import com.example.recode_final_project.adapter.Professor_Adapter;
 import com.example.recode_final_project.model.Professor;
 import com.example.recode_final_project.retrofit.RetrofitConfiguration;
-import com.example.recode_final_project.views.department.DepartmentCreateActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +54,7 @@ public class ProfessorActivity extends AppCompatActivity {
 
                 List<Professor> professors = response.body();
 
-                listView.setAdapter(new Professor_Adapter(ProfessorActivity.this, R.layout.professor_item_list, (ArrayList<Professor>) professors));
+                listView.setAdapter(new Professor_Adapter(ProfessorActivity.this, R.layout.activity_professor_item_list, (ArrayList<Professor>) professors));
 
                 Toast.makeText(getApplicationContext(), "Busca Realizada", Toast.LENGTH_SHORT).show();
 
@@ -97,7 +96,7 @@ public class ProfessorActivity extends AppCompatActivity {
 
                     list.add(professor);
 
-                    listView.setAdapter(new Professor_Adapter(ProfessorActivity.this, R.layout.professor_item_list, list));
+                    listView.setAdapter(new Professor_Adapter(ProfessorActivity.this, R.layout.activity_professor_item_list, list));
 
                     Toast.makeText(getApplicationContext(), "Professor encontrado", Toast.LENGTH_SHORT).show();
                 }
