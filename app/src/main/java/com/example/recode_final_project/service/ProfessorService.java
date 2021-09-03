@@ -29,6 +29,6 @@ public interface ProfessorService {
     @PUT("professors/{id}")
     Call<Professor> updateProfessor(@Path("id") int id, @Body ProfessorDTO professor);
 
-    @DELETE
+    @DELETE("professors/{id}")
     Call<Void> deleteProfessor(@Path("id") int id);
 }

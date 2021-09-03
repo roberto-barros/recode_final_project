@@ -109,7 +109,7 @@ public class ProfessorUpdateDeleteActivity extends AppCompatActivity {
         EditText editTextId = findViewById(R.id.edProfessorId);
         int professorId = Integer.parseInt(editTextId.getText().toString());
 
-        Call<Void> call = new RetrofitConfiguration().getDepartmentService().deleteDepartment(professorId);
+        Call<Void> call = new RetrofitConfiguration().getProfessorService().deleteProfessor(professorId);
 
         call.enqueue(new Callback<Void>() {
             @Override
