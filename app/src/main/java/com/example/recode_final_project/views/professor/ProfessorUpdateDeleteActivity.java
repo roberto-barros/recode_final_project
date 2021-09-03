@@ -106,6 +106,26 @@ public class ProfessorUpdateDeleteActivity extends AppCompatActivity {
     }
 
     public void deleteProfessor(View view) {
+        EditText editTextId = findViewById(R.id.edProfessorId);
+        int professorId = Integer.parseInt(editTextId.getText().toString());
+
+        Call<Void> call = new RetrofitConfiguration().getDepartmentService().deleteDepartment(professorId);
+
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if(response.isSuccessful()){
+                    Toast.makeText(getApplicationContext(), "Professor Apagado", Toast.LENGTH_SHORT).show();
+                }
+                finish();
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Erro!", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
 
 
     }

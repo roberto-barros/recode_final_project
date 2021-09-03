@@ -93,7 +93,7 @@ public class CourseUpdateDeleteActivity  extends AppCompatActivity {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
                 if(response.isSuccessful()){
-                    Toast.makeText(getApplicationContext(), "curso Apagado", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Curso Apagado", Toast.LENGTH_SHORT).show();
                 }
                 finish();
             }
