@@ -41,7 +41,7 @@ public class DepartmentActivity extends AppCompatActivity {
         listView = findViewById(R.id.lvDepartment);
         listView.setAdapter(adapter);
 
-        //getAll();
+        getAll();
 
     }
 
@@ -96,7 +96,7 @@ public class DepartmentActivity extends AppCompatActivity {
                 departments = response.body();
                 adapter.notifyDataSetChanged();
 
-                //listView.setAdapter(new Department_Adapter(DepartmentActivity.this, R.layout.activity_department_item_list, (ArrayList<Department>) departments));
+                listView.setAdapter(new Department_Adapter(DepartmentActivity.this, R.layout.activity_department_item_list, (ArrayList<Department>) departments));
 
                 Toast.makeText(getApplicationContext(), "Busca Realizada", Toast.LENGTH_SHORT).show();
 

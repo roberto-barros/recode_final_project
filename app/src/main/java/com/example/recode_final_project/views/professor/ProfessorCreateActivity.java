@@ -74,16 +74,16 @@ public class ProfessorCreateActivity extends AppCompatActivity {
                     }else{
                         Toast.makeText(getApplicationContext(), "Requisição Falhou!", Toast.LENGTH_SHORT).show();
                     }
+                    finish();
                 }
 
                 @Override
                 public void onFailure(Call<Professor> call, Throwable t) {
                     Toast.makeText(getApplicationContext(), "Erro no cadastro!", Toast.LENGTH_SHORT).show();
-
+                    finish();
                 }
             });
 
-            finish();
 
         }else{
             Toast.makeText(getApplicationContext(), "Informação obrigatória não digitada", Toast.LENGTH_SHORT).show();
@@ -92,7 +92,6 @@ public class ProfessorCreateActivity extends AppCompatActivity {
     }
 
     public void buildSpinner(){
-
 
         Call<List<Department>> call = new RetrofitConfiguration().getDepartmentService().getDepartments();
 

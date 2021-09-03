@@ -67,20 +67,19 @@ public class DepartmentUpdateDeleteActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Department> call, Response<Department> response) {
                 if(response.isSuccessful()){
-
                     Toast.makeText(getApplicationContext(), "Departamento Atualizado", Toast.LENGTH_SHORT).show();
-
                 }
+                finish();
             }
 
             @Override
             public void onFailure(Call<Department> call, Throwable t) {
 
                 Toast.makeText(getApplicationContext(), "Erro!", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
 
-        finish();
 
     }
 
@@ -97,16 +96,17 @@ public class DepartmentUpdateDeleteActivity extends AppCompatActivity {
                 if(response.isSuccessful()){
                     Toast.makeText(getApplicationContext(), "Departamento Apagado", Toast.LENGTH_SHORT).show();
                 }
+                finish();
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
 
                 Toast.makeText(getApplicationContext(), "Erro!", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
 
-        finish();
 
     }
 }
