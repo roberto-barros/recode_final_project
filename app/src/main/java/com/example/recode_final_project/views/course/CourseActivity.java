@@ -110,7 +110,7 @@ public class CourseActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Course>> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Erro!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Sem conexão!", Toast.LENGTH_SHORT).show();
             }
         });
 

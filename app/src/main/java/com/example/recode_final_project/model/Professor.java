@@ -2,7 +2,7 @@ package com.example.recode_final_project.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@JsonIgnoreProperties("listAllocations")
+@JsonIgnoreProperties({"listAllocations", "department"})
 public class Professor {
 
     private int id;

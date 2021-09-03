@@ -1,7 +1,10 @@
 package com.example.recode_final_project.views.professor;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,9 +14,13 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.recode_final_project.R;
+import com.example.recode_final_project.dto.DepartmentProfessorDTO;
+import com.example.recode_final_project.dto.ProfessorDTO;
 import com.example.recode_final_project.model.Department;
 import com.example.recode_final_project.model.Professor;
 import com.example.recode_final_project.retrofit.RetrofitConfiguration;
+import com.example.recode_final_project.views.department.DepartmentActivity;
+import com.example.recode_final_project.views.department.DepartmentUpdateDeleteActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +32,7 @@ import retrofit2.Response;
 public class ProfessorCreateActivity extends AppCompatActivity {
 
     private Spinner spinner;
+    String departmentId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,10 +58,10 @@ public class ProfessorCreateActivity extends AppCompatActivity {
         Department department = new Department();
         department.setName(profDep);
 
-        Professor newProfessor = new Professor();
+        ProfessorDTO newProfessor = new ProfessorDTO();
         newProfessor.setName(nameProfessor);
         newProfessor.setCpf(profCPF);
-        newProfessor.setDepartment(department);
+        newProfessor.setDepartment(new DepartmentProfessorDTO(departmentId));
 
         Call<Professor> call = new RetrofitConfiguration().getProfessorService().createProfessor(newProfessor);
 
@@ -93,9 +101,9 @@ public class ProfessorCreateActivity extends AppCompatActivity {
             public void onResponse(Call<List<Department>> call, Response<List<Department>> response) {
                 List<Department> departments = response.body();
 
+                List<String> nameDepartments = getListNameDepartments(departments);
 
-
-                ArrayAdapter<Department> adapter = new ArrayAdapter<>(ProfessorCreateActivity.this, android.R.layout.simple_spinner_dropdown_item, departments);
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(ProfessorCreateActivity.this, android.R.layout.simple_spinner_dropdown_item, nameDepartments);
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
                 spinner = findViewById(R.id.spinnerProfessorDep);
@@ -104,7 +112,13 @@ public class ProfessorCreateActivity extends AppCompatActivity {
                 spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                        String selectedItemText = adapterView.getItemAtPosition(position).toString();
 
+                        for (Department department : departments) {
+                            if(selectedItemText.equals(department.getName())){
+                                departmentId = Integer.toString(department.getId());
+                            }
+                        }
                     }
 
                     @Override
@@ -121,4 +135,13 @@ public class ProfessorCreateActivity extends AppCompatActivity {
             }
         });
     }
+
+    public List<String> getListNameDepartments(List<Department> departments){
+        List<String> nameDepartments = new ArrayList<>();
+        for (Department department : departments) {
+            nameDepartments.add(department.getName());
+        }
+        return nameDepartments;
+    }
+
 }

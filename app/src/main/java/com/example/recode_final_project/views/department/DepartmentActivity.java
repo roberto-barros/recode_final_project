@@ -27,6 +27,8 @@ import retrofit2.Response;
 public class DepartmentActivity extends AppCompatActivity {
 
     private ListView listView;
+    List<Department> departments =new ArrayList<>();
+    Department_Adapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +37,11 @@ public class DepartmentActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
+        adapter = new Department_Adapter(DepartmentActivity.this, R.layout.activity_department_item_list, (ArrayList<Department>) departments);
         listView = findViewById(R.id.lvDepartment);
+        listView.setAdapter(adapter);
 
-        getAll();
+        //getAll();
 
     }
 
@@ -89,9 +93,10 @@ public class DepartmentActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Department>> call, Response<List<Department>> response) {
 
-                List<Department> departments = response.body();
+                departments = response.body();
+                adapter.notifyDataSetChanged();
 
-                listView.setAdapter(new Department_Adapter(DepartmentActivity.this, R.layout.activity_department_item_list, (ArrayList<Department>) departments));
+                //listView.setAdapter(new Department_Adapter(DepartmentActivity.this, R.layout.activity_department_item_list, (ArrayList<Department>) departments));
 
                 Toast.makeText(getApplicationContext(), "Busca Realizada", Toast.LENGTH_SHORT).show();
 
@@ -107,7 +112,7 @@ public class DepartmentActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Department>> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Erro!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Sem conexão!", Toast.LENGTH_SHORT).show();
             }
         });
 
