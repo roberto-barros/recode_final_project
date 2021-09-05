@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Recode_Final_Project">
         <activity
+            android:name=".views.allocation.AllocationCreateActivity"
+            android:exported="true" />
+        <activity
+            android:name=".views.allocation.AllocationActivity"
+            android:exported="true" />
+        <activity
             android:name=".views.course.CourseUpdateDeleteActivity"
             android:exported="true"
             android:windowSoftInputMode="stateHidden" />

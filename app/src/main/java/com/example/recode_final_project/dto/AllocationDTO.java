@@ -1,10 +1,12 @@
-package com.example.recode_final_project.model;
+package com.example.recode_final_project.dto;
+
+import com.example.recode_final_project.model.Course;
+import com.example.recode_final_project.model.Professor;
 
 import java.time.DayOfWeek;
 import java.util.Date;
 
-
-public class Allocation {
+public class AllocationDTO {
 
     private Long id;
     private DayOfWeek dayOfWeek;
@@ -14,12 +16,12 @@ public class Allocation {
     private Course allocationCourse;
 
 
-    public Allocation() {
+    public AllocationDTO() {
 
     }
 
-    public Allocation(Long id, DayOfWeek dayOfWeek, Date start, Date end, Professor allocationProfessor,
-                      Course allocationCourse) {
+    public AllocationDTO(Long id, DayOfWeek dayOfWeek, Date start, Date end, Professor allocationProfessor,
+                         Course allocationCourse) {
         super();
         this.id = id;
         this.dayOfWeek = dayOfWeek;
