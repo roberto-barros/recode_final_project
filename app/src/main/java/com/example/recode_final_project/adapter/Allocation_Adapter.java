@@ -69,4 +69,3 @@ public class Allocation_Adapter extends ArrayAdapter<Allocation> {
     }
 
 }
-}
