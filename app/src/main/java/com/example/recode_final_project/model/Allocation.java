@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class Allocation {
 
-    private Long id;
+    private int id;
     private DayOfWeek dayOfWeek;
     private Date start;
     private Date end;
@@ -18,9 +18,7 @@ public class Allocation {
 
     }
 
-    public Allocation(Long id, DayOfWeek dayOfWeek, Date start, Date end, Professor allocationProfessor,
-                      Course allocationCourse) {
-        super();
+    public Allocation(int id, DayOfWeek dayOfWeek, Date start, Date end, Professor allocationProfessor, Course allocationCourse) {
         this.id = id;
         this.dayOfWeek = dayOfWeek;
         this.start = start;
@@ -29,11 +27,11 @@ public class Allocation {
         this.allocationCourse = allocationCourse;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -76,5 +74,4 @@ public class Allocation {
     public void setAllocationCourse(Course allocationCourse) {
         this.allocationCourse = allocationCourse;
     }
-
 }
