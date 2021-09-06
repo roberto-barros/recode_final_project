@@ -62,20 +62,9 @@
         android:layout_marginBottom="5dp"
         android:background="@drawable/round_layout_bg"
         app:layout_constraintTop_toBottomOf="@id/edAllocationId"
-        app:layout_constraintBottom_toTopOf="@id/spinnerAllocDepartment"
-        />
-
-    <Spinner
-        android:id="@+id/spinnerAllocDepartment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/round_layout_bg"
-        app:layout_constraintTop_toBottomOf="@id/spinnerAllocProfesssor"
         app:layout_constraintBottom_toTopOf="@id/spinnerAllocCourse"
         />
+
 
     <Spinner
         android:id="@+id/spinnerAllocCourse"
@@ -85,7 +74,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/round_layout_bg"
-        app:layout_constraintTop_toBottomOf="@id/spinnerAllocDepartment"
+        app:layout_constraintTop_toBottomOf="@id/spinnerAllocProfesssor"
         app:layout_constraintBottom_toTopOf="@id/spinnerAllocDayOfWeek"
         />
 
