@@ -54,10 +54,10 @@ public class Allocation_Adapter extends ArrayAdapter<Allocation> {
         textViewDay.setText(allocation.getDayofweek());
 
         TextView textViewStartHour = itemView.findViewById(R.id.tvStartHour);
-        textViewStartHour.setText(allocation.getStart());
+        textViewStartHour.setText(allocation.getStart().substring(0,5));
 
         TextView textViewEndHour = itemView.findViewById(R.id.tvEndHour);
-        textViewEndHour.setText(allocation.getEnd());
+        textViewEndHour.setText(allocation.getEnd().substring(0,5));
 
         return itemView;
     }
