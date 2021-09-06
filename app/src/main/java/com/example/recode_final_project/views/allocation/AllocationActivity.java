@@ -1,6 +1,7 @@
 package com.example.recode_final_project.views.allocation;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,6 +16,7 @@ import com.example.recode_final_project.adapter.Allocation_Adapter;
 import com.example.recode_final_project.model.Allocation;
 import com.example.recode_final_project.retrofit.RetrofitConfiguration;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,9 +64,7 @@ public class AllocationActivity extends AppCompatActivity {
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        Intent intent = new Intent(AllocationActivity.this, AllocationUpdateDeleteActivity.class);
-                        intent.putExtra("ID_ALLOCATION", allocations.get(i).getId());
-                        startActivity(intent);
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://elegant-knuth-94245c.netlify.app/allocations/")));
                     }
                 });
             }
@@ -113,8 +113,7 @@ public class AllocationActivity extends AppCompatActivity {
     }
 
     public void switchToCreateAllocation(View view) {
-        Intent intent = new Intent(this, AllocationCreateActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://elegant-knuth-94245c.netlify.app/allocations/")));
     }
 
 }
