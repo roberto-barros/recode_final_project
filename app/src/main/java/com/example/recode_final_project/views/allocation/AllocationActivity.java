@@ -48,7 +48,7 @@ public class AllocationActivity extends AppCompatActivity {
 
     public void getAll(){
 
-        Call<List<Allocation>> call = new RetrofitConfiguration().getAllocationService().getAllAllocations();
+        Call<List<Allocation>> call = new RetrofitConfiguration().getAllocationService().getAllocations();
 
         call.enqueue(new Callback<List<Allocation>>() {
             @Override

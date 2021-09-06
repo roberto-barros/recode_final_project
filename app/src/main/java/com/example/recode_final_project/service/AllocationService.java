@@ -18,7 +18,7 @@ import retrofit2.http.Path;
 public interface AllocationService {
 
     @GET("allocations/")
-    Call<List<Allocation>> getAllAllocations();
+    Call<List<Allocation>> getAllocations();
 
     @GET("allocations/{id}")
     Call<Allocation> getAllocationById(@Path("id") int id);
@@ -30,7 +30,7 @@ public interface AllocationService {
     Call<Allocation> getAllocationByProfessor(@Path("course") Course course);
 
     @POST("allocations/")
-    Call<Allocation> createAllocation(@Body AllocationDTO allocation);
+    Call<Allocation> createAllocation(@Body Allocation allocation);
 
     @PUT("allocations/{id}")
     Call<Allocation> updateAllocation(@Path("id") int id, @Body Allocation allocation);

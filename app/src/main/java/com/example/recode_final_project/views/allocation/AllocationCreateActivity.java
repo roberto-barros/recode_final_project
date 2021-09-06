@@ -1,19 +1,20 @@
 package com.example.recode_final_project.views.allocation;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.recode_final_project.R;
+import com.example.recode_final_project.model.Allocation;
 import com.example.recode_final_project.model.Course;
 import com.example.recode_final_project.model.Department;
 import com.example.recode_final_project.model.Professor;
 import com.example.recode_final_project.retrofit.RetrofitConfiguration;
-import com.example.recode_final_project.views.professor.ProfessorCreateActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +26,12 @@ import retrofit2.Response;
 public class AllocationCreateActivity extends AppCompatActivity {
 
     private Spinner spinner;
+    private String dayofweek;
+    private String start;
+    private String end;
     Course newCourse = new Course();
     Professor newProfessor = new Professor();
+    Department newDepartment = new Department();
     String hours[] = {"00:00+0000", "01:00+0000", "02:00+0000", "03:00+0000", "04:00+0000", "05:00+0000"
             , "06:00+0000", "07:00+0000", "08:00+0000", "09:00+0000", "10:00+0000", "11:00+0000"
             , "12:00+0000", "13:00+0000", "14:00+0000", "15:00+0000", "16:00+0000", "17:00+0000"
@@ -54,6 +59,32 @@ public class AllocationCreateActivity extends AppCompatActivity {
     public void createAllocation(View view) {
 
 
+        Allocation allocation = new Allocation();
+        allocation.setProfessor(newProfessor);
+        allocation.setCourse(newCourse);
+        allocation.setDayofweek(dayofweek);
+        allocation.setStart(start.substring(0,5));
+        allocation.setEnd(end.substring(0,5));
+
+        Call<Allocation> call = new RetrofitConfiguration().getAllocationService().createAllocation(allocation);
+
+        call.enqueue(new Callback<Allocation>() {
+            @Override
+            public void onResponse(Call<Allocation> call, Response<Allocation> response) {
+                if(response.isSuccessful()) {
+                    Toast.makeText(getApplicationContext(), "Professor Cadastrado!", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getApplicationContext(), "Requisição Falhou!", Toast.LENGTH_SHORT).show();
+                }
+                finish();
+            }
+
+            @Override
+            public void onFailure(Call<Allocation> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Erro no cadastro!", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
     }
 
     public void buildProfessorSpinner(){
@@ -82,6 +113,9 @@ public class AllocationCreateActivity extends AppCompatActivity {
                                 newProfessor.setId(professor.getId());
                                 newProfessor.setName(professor.getName());
                                 newProfessor.setCpf(professor.getCpf());
+                                newDepartment.setId(professor.getDepartment().getId());
+                                newProfessor.setDepartment(newDepartment);
+
                             }
                         }
 
@@ -162,9 +196,9 @@ public class AllocationCreateActivity extends AppCompatActivity {
     }
 
     public void buildDayOfWeekSpinner(){
-        String dayOfWeek[] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+        String days[] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(AllocationCreateActivity.this, android.R.layout.simple_spinner_dropdown_item, dayOfWeek);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(AllocationCreateActivity.this, android.R.layout.simple_spinner_dropdown_item, days);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinner = findViewById(R.id.spDayOfWeek);
@@ -173,7 +207,7 @@ public class AllocationCreateActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                String dayOfWeek = adapterView.getItemAtPosition(position).toString();
+                dayofweek = adapterView.getItemAtPosition(position).toString();
 
             }
 
@@ -195,7 +229,7 @@ public class AllocationCreateActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                String startHour = adapterView.getItemAtPosition(position).toString();
+                start = adapterView.getItemAtPosition(position).toString();
 
             }
 
@@ -216,7 +250,7 @@ public class AllocationCreateActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                String endHour = adapterView.getItemAtPosition(position).toString();
+                end = adapterView.getItemAtPosition(position).toString();
 
             }
 
