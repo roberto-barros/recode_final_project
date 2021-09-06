@@ -1,30 +1,29 @@
 package com.example.recode_final_project.model;
 
-import java.time.DayOfWeek;
 import java.util.Date;
 
 
 public class Allocation {
 
     private int id;
-    private DayOfWeek dayOfWeek;
-    private Date start;
-    private Date end;
-    private Professor allocationProfessor;
-    private Course allocationCourse;
+    private String dayofweek;
+    private String start;
+    private String end;
+    private Professor professor;
+    private Course course;
 
 
     public Allocation() {
 
     }
 
-    public Allocation(int id, DayOfWeek dayOfWeek, Date start, Date end, Professor allocationProfessor, Course allocationCourse) {
+    public Allocation(int id, String dayofweek, String start, String end, Professor professor, Course course) {
         this.id = id;
-        this.dayOfWeek = dayOfWeek;
+        this.dayofweek = dayofweek;
         this.start = start;
         this.end = end;
-        this.allocationProfessor = allocationProfessor;
-        this.allocationCourse = allocationCourse;
+        this.professor = professor;
+        this.course = course;
     }
 
     public int getId() {
@@ -35,43 +34,43 @@ public class Allocation {
         this.id = id;
     }
 
-    public DayOfWeek getDayOfWeek() {
-        return dayOfWeek;
+    public String getDayofweek() {
+        return dayofweek;
     }
 
-    public void setDayOfWeek(DayOfWeek dayOfWeek) {
-        this.dayOfWeek = dayOfWeek;
+    public void setDayofweek(String dayofweek) {
+        this.dayofweek = dayofweek;
     }
 
-    public Date getStart() {
+    public String getStart() {
         return start;
     }
 
-    public void setStart(Date start) {
+    public void setStart(String start) {
         this.start = start;
     }
 
-    public Date getEnd() {
+    public String getEnd() {
         return end;
     }
 
-    public void setEnd(Date end) {
+    public void setEnd(String end) {
         this.end = end;
     }
 
-    public Professor getAllocationProfessor() {
-        return allocationProfessor;
+    public Professor getProfessor() {
+        return professor;
     }
 
-    public void setAllocationProfessor(Professor allocationProfessor) {
-        this.allocationProfessor = allocationProfessor;
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
     }
 
-    public Course getAllocationCourse() {
-        return allocationCourse;
+    public Course getCourse() {
+        return course;
     }
 
-    public void setAllocationCourse(Course allocationCourse) {
-        this.allocationCourse = allocationCourse;
+    public void setCourse(Course course) {
+        this.course = course;
     }
 }

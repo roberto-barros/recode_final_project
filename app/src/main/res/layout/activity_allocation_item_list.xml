@@ -6,7 +6,7 @@
     android:background="@drawable/round_layout_bg">
 
     <TextView
-        android:id="@+id/tvIdProf"
+        android:id="@+id/tvIdAlloc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -29,7 +29,7 @@
         android:textSize="15dp"
         android:layout_marginTop="10dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tvIdProf"
+        app:layout_constraintStart_toEndOf="@id/tvIdAlloc"
         app:layout_constraintBottom_toTopOf="@id/tvCourseAlloc"
         app:layout_constraintVertical_chainStyle="packed"
         />
@@ -42,7 +42,7 @@
         android:textSize="12dp"
         android:layout_marginLeft="10dp"
         app:layout_constraintTop_toBottomOf="@id/tvProfAlloc"
-        app:layout_constraintStart_toEndOf="@id/tvIdProf"
+        app:layout_constraintStart_toEndOf="@id/tvIdAlloc"
         app:layout_constraintBottom_toBottomOf="parent"
         />
 
@@ -70,21 +70,11 @@
         android:textSize="12dp"
         android:layout_marginBottom="10dp"
         app:layout_constraintTop_toBottomOf="@id/tvDayOfWeek"
-        app:layout_constraintEnd_toStartOf="@id/tvSpace"
+        app:layout_constraintEnd_toStartOf="@id/tvEndHour"
         app:layout_constraintHorizontal_chainStyle="packed"
         />
 
-    <TextView
-        android:id="@+id/tvSpace"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="-"
-        android:textSize="12dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginRight="2dp"
-        app:layout_constraintTop_toBottomOf="@id/tvDayOfWeek"
-        app:layout_constraintEnd_toStartOf="@id/tvEndHour"
-        />
+
 
     <TextView
         android:id="@+id/tvEndHour"

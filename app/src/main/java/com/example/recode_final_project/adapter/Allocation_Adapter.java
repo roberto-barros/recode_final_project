@@ -14,7 +14,6 @@ import androidx.annotation.Nullable;
 import com.example.recode_final_project.R;
 import com.example.recode_final_project.model.Allocation;
 
-
 import java.util.ArrayList;
 
 public class Allocation_Adapter extends ArrayAdapter<Allocation> {
@@ -27,10 +26,10 @@ public class Allocation_Adapter extends ArrayAdapter<Allocation> {
         allocations.addAll(list);
     }
 
-    public Allocation_Adapter(@NonNull Context context, int resource, Context context1, int layout, ArrayList<Allocation> allocations) {
-        super(context, resource);
-        this.context = context1;
-        this.layout = layout;
+    public Allocation_Adapter(@NonNull Context context, int resource, @NonNull ArrayList<Allocation> allocations) {
+        super(context, resource, allocations);
+        this.context = context;
+        this.layout = resource;
         this.allocations = allocations;
     }
 
@@ -42,23 +41,23 @@ public class Allocation_Adapter extends ArrayAdapter<Allocation> {
 
         Allocation allocation = this.allocations.get(position);
 
-        TextView textViewId = itemView.findViewById(R.id.tvIdAllocation);
+        TextView textViewId = itemView.findViewById(R.id.tvIdAlloc);
         textViewId.setText(Integer.toString(allocation.getId()));
 
         TextView textViewProf = itemView.findViewById(R.id.tvProfAlloc);
-        textViewProf.setText(allocation.getAllocationProfessor().getName());
+        textViewProf.setText(allocation.getProfessor().getName());
 
         TextView textViewCourse = itemView.findViewById(R.id.tvCourseAlloc);
-        textViewCourse.setText(allocation.getAllocationCourse().getName());
+        textViewCourse.setText(allocation.getCourse().getName());
 
         TextView textViewDay = itemView.findViewById(R.id.tvDayOfWeek);
-        textViewDay.setText(allocation.getDayOfWeek().toString());
+        textViewDay.setText(allocation.getDayofweek());
 
         TextView textViewStartHour = itemView.findViewById(R.id.tvStartHour);
-        textViewStartHour.setText(allocation.getStart().toString());
+        textViewStartHour.setText(allocation.getStart());
 
         TextView textViewEndHour = itemView.findViewById(R.id.tvEndHour);
-        textViewEndHour.setText(allocation.getEnd().toString());
+        textViewEndHour.setText(allocation.getEnd());
 
         return itemView;
     }

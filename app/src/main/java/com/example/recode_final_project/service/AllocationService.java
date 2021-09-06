@@ -17,7 +17,7 @@ import retrofit2.http.Path;
 
 public interface AllocationService {
 
-    @GET("allocations")
+    @GET("allocations/")
     Call<List<Allocation>> getAllAllocations();
 
     @GET("allocations/{id}")
