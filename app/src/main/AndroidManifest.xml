@@ -13,7 +13,8 @@
         android:theme="@style/Theme.Recode_Final_Project">
         <activity
             android:name=".views.allocation.AllocationUpdateDeleteActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".views.allocation.AllocationCreateActivity"
             android:exported="true"

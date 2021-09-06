@@ -39,6 +39,13 @@ public class AllocationActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        getAll();
+    }
+
     public void getAll(){
 
         Call<List<Allocation>> call = new RetrofitConfiguration().getAllocationService().getAllAllocations();
@@ -109,4 +116,5 @@ public class AllocationActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AllocationCreateActivity.class);
         startActivity(intent);
     }
+
 }
