@@ -1,7 +1,10 @@
 package com.example.recode_final_project.views.allocation;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -49,6 +52,14 @@ public class AllocationActivity extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(), "Busca Realizada", Toast.LENGTH_SHORT).show();
 
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        Intent intent = new Intent(AllocationActivity.this, AllocationUpdateDeleteActivity.class);
+                        intent.putExtra("ID_ALLOCATION", allocations.get(i).getId());
+                        startActivity(intent);
+                    }
+                });
             }
 
             @Override
@@ -61,8 +72,41 @@ public class AllocationActivity extends AppCompatActivity {
     }
 
     public void getAllocationById(View view) {
+        EditText editText = findViewById(R.id.edAllocation);
+
+        if(!editText.getText().toString().equals("") && !editText.getText().toString().equals(null)){
+            int idAllocation = Integer.parseInt(editText.getText().toString());
+
+            editText.setText("");
+
+            Call<Allocation> call = new RetrofitConfiguration().getAllocationService().getAllocationById(idAllocation);
+
+            call.enqueue(new Callback<Allocation>() {
+                @Override
+                public void onResponse(Call<Allocation> call, Response<Allocation> response) {
+                    Allocation allocation = response.body();
+
+                    ArrayList<Allocation> list = new ArrayList<>();
+
+                    list.add(allocation);
+
+                    listView.setAdapter(new Allocation_Adapter(AllocationActivity.this, R.layout.activity_allocation_item_list, list));
+
+                    Toast.makeText(getApplicationContext(), "Alocação encontrada", Toast.LENGTH_SHORT).show();
+
+                }
+
+                @Override
+                public void onFailure(Call<Allocation> call, Throwable t) {
+                    Toast.makeText(getApplicationContext(), "Erro!", Toast.LENGTH_SHORT).show();
+
+                }
+            });
+        }
     }
 
     public void switchToCreateAllocation(View view) {
+        Intent intent = new Intent(this, AllocationCreateActivity.class);
+        startActivity(intent);
     }
 }
